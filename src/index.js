@@ -38,15 +38,25 @@ function loadImages() {
         if (name === '') {
          return Notiflix.Notify.info('Enter a word to search for images.')
         }
+    
          try {
              const data = await getImages(page, name);
              if (data.total === 0) {
                 return Notiflix.Notify.info(`Sorry, there are no images matching your search query: ${name}. Please try again.`);
              }
              appendImagesMarkup(data);
-             onPageScroll()
              lightbox.refresh();
-             loadMoreBtn.show(); 
+             onPageScroll()
+             loadMoreBtn.show();
+            const { totalHits } = data;
+
+        if (refs.containerDiv.children.length === totalHits ) {
+            Notiflix.Notify.info(`We're sorry, but you've reached the end of search results.`);
+            // loadMoreBtn.hide();
+        } else {
+            // loadMoreBtn.enable();
+            Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
+        } 
              page++;   
         } catch (e) {
             console.log(e.messege);
@@ -68,5 +78,5 @@ function onPageScroll(){
 }
 
 const fetchImages = loadImages();
-refs.formSearch.addEventListener('submit', fetchImages());
-loadMoreBtn.refs.button.addEventListener('click', fetchImages());
+refs.formSearch.addEventListener('submit', fetchImages);
+loadMoreBtn.refs.button.addEventListener('click', fetchImages);
