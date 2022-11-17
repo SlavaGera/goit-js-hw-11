@@ -1,0 +1,141 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: whitesmoke;
+    position: relative;
+    color: #212121;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    width: 300px;
+    padding: 5px 20px 5px 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: rgba(234, 235, 241, 0.747);
+    color: rgba(10, 0, 0, 0.966);
+}
+
+::placeholder {
+    color: #000;
+}
+
+.social-list__icon {
+    width: 10px;
+    height: 10px;
+    fill: red;
+}
+
+b {
+    margin-bottom: 3px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: rgb(145, 145, 248);
+
+    &__btn {
+        border: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+        background-color: rgb(62, 217, 225);
+    }
+
+    &__btn:hover {
+        background-color: rgb(17, 0, 253);
+        color: #000;
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 0;
+    margin: 0;
+    max-width: calc(100vw - 80px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.photo-card {
+    margin: 10px 10px 10px 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    &__image {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+}
+
+.card__img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(227, 237, 253);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.info-item {
+    font-family: 'Arial';
+    font-size: 14px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+
+    &:not(:last-child){
+        margin-right: 15px;
+    }
+}
+
+.result {
+    font-size: 13px;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button.is-hidden {
+    display: none;
+}
+
+button.load-more {
+    height: 20px;
+}
