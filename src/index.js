@@ -42,7 +42,9 @@ function loadImages() {
          try {
              const data = await getImages(page, name);
              if (data.total === 0) {
-                return Notiflix.Notify.info(`Sorry, there are no images matching your search query: ${name}. Please try again.`);
+                Notiflix.Notify.info(`Sorry, there are no images matching your search query: ${name}. Please try again.`);
+                loadMoreBtn.hide();
+                return;
              }
              appendImagesMarkup(data);
              lightbox.refresh();
@@ -52,9 +54,9 @@ function loadImages() {
 
         if (refs.containerDiv.children.length === totalHits ) {
             Notiflix.Notify.info(`We're sorry, but you've reached the end of search results.`);
-            // loadMoreBtn.hide();
+            loadMoreBtn.hide();
         } else {
-            // loadMoreBtn.enable();
+            loadMoreBtn.enable();
             Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
         } 
              page++;   
